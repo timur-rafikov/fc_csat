@@ -1,0 +1,65 @@
+{
+  "dataset_version": "0.1-product-support-debug",
+  "generated": 12,
+  "passed": 12,
+  "failed": 0,
+  "failure_reasons": {
+    "empty_message": 0,
+    "empty_plan_purpose": 0,
+    "invalid_json": 0,
+    "message_count_mismatch": 0,
+    "render_exception": 0,
+    "role_pattern_mismatch": 0,
+    "role_plan_mismatch": 0,
+    "wrong_role": 0
+  },
+  "model": "gpt-5-mini",
+  "temperature": 1,
+  "seed": null,
+  "semantic_variants": [
+    "real_customer",
+    "minimal_customer"
+  ],
+  "max_parallel_requests": 4,
+  "usage": {
+    "currency": "USD",
+    "pricing": {
+      "currency": "USD",
+      "input_per_1m_tokens": 0.25,
+      "cached_input_per_1m_tokens": 0.025,
+      "output_per_1m_tokens": 2.0
+    },
+    "total": {
+      "calls": 24,
+      "prompt_tokens": 19800,
+      "cached_prompt_tokens": 0,
+      "billable_prompt_tokens": 19800,
+      "completion_tokens": 59787,
+      "total_tokens": 79587,
+      "cost": 0.124524,
+      "provider_reported_cost": 0.0
+    },
+    "by_stage": {
+      "plan": {
+        "calls": 12,
+        "prompt_tokens": 6702,
+        "cached_prompt_tokens": 0,
+        "billable_prompt_tokens": 6702,
+        "completion_tokens": 25008,
+        "total_tokens": 31710,
+        "cost": 0.0516915,
+        "provider_reported_cost": 0.0
+      },
+      "dialogue": {
+        "calls": 12,
+        "prompt_tokens": 13098,
+        "cached_prompt_tokens": 0,
+        "billable_prompt_tokens": 13098,
+        "completion_tokens": 34779,
+        "total_tokens": 47877,
+        "cost": 0.0728325,
+        "provider_reported_cost": 0.0
+      }
+    }
+  }
+}

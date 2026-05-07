@@ -1,0 +1,574 @@
+[
+  {
+    "dialogue_id": "payment_inquiry_correct__real_customer_v01",
+    "case_id": "payment_inquiry_correct",
+    "task": "payment_inquiry",
+    "condition": "correct",
+    "semantic_variant": "real_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "correct",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "hi, i see a payment on my account i don't recognize. can you check what it is and help?"
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. To look up the specific transaction, please confirm your full name as it appears on the account, the last four digits of the account or card (for example, 6789), and that you are in this secure chat session. If you have the transaction details handy, please also tell me the date, amount, and merchant name as shown."
+      },
+      {
+        "role": "user",
+        "content": "sarah williams, last 4 6789. the charge shows 04/18/2026 for $92.50 from HARRISON GROCERIES. yes i'm in the secure session — pls help."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Sarah. I can see a posted charge for $92.50 on 04/18/2026 from HARRISON GROCERIES on your account ending in 6789. \"Posted\" means the transaction has cleared and appears on your statement (it is no longer pending). Would you like me to open a formal investigation/dispute for this charge?"
+      },
+      {
+        "role": "user",
+        "content": "yes please open an investigation. i didn't shop there that day and my card didn't leave my wallet — looks like fraud. prefer email contact to my primary email."
+      },
+      {
+        "role": "assistant",
+        "content": "I will open a formal inquiry on your behalf and use the primary email on file for updates, as requested. One quick question before I start: would you like us to temporarily block the card ending in 6789 while we investigate? Reply yes to block or no to keep it active. I will open the investigation now and you will receive a confirmation email shortly."
+      },
+      {
+        "role": "user",
+        "content": "no block, thanks. how long will this take and what should i expect next?"
+      },
+      {
+        "role": "assistant",
+        "content": "Confirmed — I have opened the investigation for the $92.50 posted charge from HARRISON GROCERIES on 04/18/2026 for the account ending 6789, and we will not block the card at this time. Your inquiry reference is BRK-2026-458732. You should receive an email confirmation within 1 hour with the reference and any next steps. Investigations typically take up to 7–10 business days to reach a resolution; in some cases we may provide a provisional credit while we investigate, and we will update you by email (and by phone if we need additional information). We will monitor and pursue this until it is resolved — if you think of any additional information (receipts, messages, or where you were that day), please reply to the confirmation email or return to this chat and I will add it to the case."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_correct__minimal_customer_v01",
+    "case_id": "payment_inquiry_correct",
+    "task": "payment_inquiry",
+    "condition": "correct",
+    "semantic_variant": "minimal_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "correct",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "there's a charge on my account — can you tell me the status and explain it?"
+      },
+      {
+        "role": "assistant",
+        "content": "For security, please confirm the last 4 digits of the account number so I can look into this for you."
+      },
+      {
+        "role": "user",
+        "content": "ending 4321. 04/28/2026 $128.49 GreenLeaf Market"
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you. I see the 04/28/2026 charge for $128.49 to GreenLeaf Market on the account ending in 4321. Status: posted. That means the merchant has settled the transaction and the amount has been debited from your account balance. A posted charge is no longer pending with the merchant, so the next step to challenge it is to open a formal inquiry or dispute so we can investigate and attempt to recover the funds if appropriate."
+      },
+      {
+        "role": "user",
+        "content": "not mine. please investigate/open dispute."
+      },
+      {
+        "role": "assistant",
+        "content": "Understood. Before I open the inquiry, do you have any additional details to include (receipt, transaction ID, merchant phone, or a note about where you were that day)? Also, do you have a preferred outcome such as a provisional credit while we investigate? If you proceed, I will formally submit an investigation with the merchant and card network. You will receive an acknowledgement by secure message or email within 1 business day and a full response or resolution typically within 7–10 business days. May I go ahead and open the investigation with the information we have?"
+      },
+      {
+        "role": "user",
+        "content": "go ahead. no other details."
+      },
+      {
+        "role": "assistant",
+        "content": "I have submitted the investigation for the 04/28/2026 $128.49 charge at GreenLeaf Market on your account ending 4321. Included in the inquiry: your account ending, transaction date, amount, merchant name, and that you do not recognize the charge. You will receive an acknowledgement via secure message or email within 1 business day with a reference for this inquiry, and we expect to provide a full update or resolution within 7–10 business days. If we need more information, we'll contact you. The investigation is now open and your request has been processed."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_skip_step_get_status_payment__real_customer_v01",
+    "case_id": "payment_inquiry_skip_step_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "skip_step",
+    "semantic_variant": "real_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "skip_step",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "hi, i sent $1,250.00 to greenleaf furniture on apr 28 from my checking (acct ending 6789). merchant says they didn't get it. can you find out what happened?"
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. Before I access account details, please confirm your full name and the last four digits of the account, and confirm you are the account holder or otherwise authorized to discuss this account."
+      },
+      {
+        "role": "user",
+        "content": "alex taylor, acct 6789. yes i'm the account holder."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Alex. I will open an investigation into this payment. To create the inquiry I need the payment date, exact amount, recipient/merchant name, and any reference or transaction ID you may have. Please provide those details and I’ll start the inquiry."
+      },
+      {
+        "role": "user",
+        "content": "april 28, $1,250.00 to greenleaf furniture. i don't have a tx id. did the payment go through? you didn't say the status."
+      },
+      {
+        "role": "assistant",
+        "content": "The payment is currently pending. The transfer of $1,250.00 from your account ending 6789 to GreenLeaf Furniture on April 28 shows as authorized but not yet settled. I have logged a formal payment inquiry using the details you provided and opened an investigation on your behalf; we will pursue resolution."
+      },
+      {
+        "role": "user",
+        "content": "ok. what's next? how long will this take and how will i be told the outcome?"
+      },
+      {
+        "role": "assistant",
+        "content": "Confirmation: I have created a payment inquiry for the $1,250.00 transfer to GreenLeaf Furniture (Account ending 6789). Your reference is REF-20260506-7894. You will receive an email and a secure message in the mobile app confirming the inquiry within 1 business day. Typical timeline: an initial response within 24 hours, most investigations are completed in 3–7 business days, and complex cases can take up to 10 business days. We will send status updates by email and in-app secure messages; if we need more information we may call the phone number on file. Your issue is logged and actively being handled — the payment inquiry is open and we will notify you of the outcome."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_skip_step_get_status_payment__minimal_customer_v01",
+    "case_id": "payment_inquiry_skip_step_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "skip_step",
+    "semantic_variant": "minimal_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "skip_step",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "there’s a charge mar 12 for $42.50 to Star Coffee i don’t recognize. acct ending 6789. please investigate."
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. To confirm you’re authorized to discuss the account, please confirm the name on the account and the last four digits of the card or account. I can open a formal investigation for the charge — can you also confirm the exact transaction date, amount and merchant name so I proceed?"
+      },
+      {
+        "role": "user",
+        "content": "name is alex grant. it's 03/12/2026 $42.50 Star Coffee acct 6789. did it go through?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks, Alex. I’ll open a formal support inquiry into the $42.50 Star Coffee charge on 03/12/2026. I’ve started the investigation and a specialist team will review the transaction and contact the merchant if needed. You’ll receive an acknowledgement by email within 24 hours and a more detailed update within 3–5 business days. If we need any additional information (receipt, vendor correspondence), we’ll ask you. I’ll keep this case active until it’s resolved."
+      },
+      {
+        "role": "user",
+        "content": "ok can i get a reference number? and also did the payment actually go through or is it pending? anything i need to do?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reference for your inquiry: 20-458712-9. Current customer-facing status of the transaction: the $42.50 Star Coffee payment posted to your account on 03/12/2026 and is showing as settled (cleared). I have escalated this in the investigation and the specialist team will verify the posting and liaise with the merchant as needed. Updates will be sent to your email and as a secure message in online banking — acknowledgement within 24 hours, and a full update within 3–5 business days. At this time no action is required from you unless we request receipts or other documents."
+      },
+      {
+        "role": "user",
+        "content": "email is fine. thanks."
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks, Alex — I will use email. To summarize: the $42.50 Star Coffee transaction from 03/12/2026 is currently posted and shows as settled, and your investigation (Ref 20-458712-9) is open and being worked on. Expect an email acknowledgement within 24 hours and a substantive update within 3–5 business days. If we need anything from you we’ll contact you; otherwise no further action is required. Would you like me to do anything else while we investigate?"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_extra_step_get_operations_payment__real_customer_v01",
+    "case_id": "payment_inquiry_extra_step_get_operations_payment",
+    "task": "payment_inquiry",
+    "condition": "extra_step",
+    "semantic_variant": "real_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "extra_step",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "there's a charge i don't recognize — can you check it? it was on march 14, 2026 for $342.50 to greenleaf home supply. i want the status and to dispute it if needed."
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. Just to give a quick picture of your accounts: your checking (ending 6789) shows recent debits for Netflix $15.99 on Apr 28, Rent $1,200 on Apr 1, and the GreenLeaf Home Supply charge for $342.50 on Mar 14. You also have a credit card (ending 4321) and a savings account with a small balance. Now, please confirm the exact payment you want me to check — date, amount, and payee — so I can look up the current status."
+      },
+      {
+        "role": "user",
+        "content": "i didn't ask for all that overview — but yes, confirm: greenleaf home supply, $342.50, march 14, 2026. i want the status and for you to investigate if it's wrong."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you — I confirm the payment: GreenLeaf Home Supply, $342.50, dated March 14, 2026, from checking account ending 6789. Current status: Posted on March 14, 2026. In plain terms, \"posted\" means the funds have left your account and the payment has settled with the merchant; it is no longer pending. If you believe this charge is incorrect or unauthorized, I can open a formal investigation/dispute to review the transaction and contact the merchant. Would you like me to open an investigation now?"
+      },
+      {
+        "role": "user",
+        "content": "yes please open it. what happens next and how long will it take? my phone is 555-0112 and email user@mail.com"
+      },
+      {
+        "role": "assistant",
+        "content": "I will open a formal investigation for this posted charge. Next steps: we will log your dispute, contact the merchant to request transaction details, and review the processing records and any evidence you provide (receipts, order numbers, or merchant reference). You will receive an acknowledgement from us within 1 business day, and we typically complete investigations within 7–10 business days. We will update you by secure message and by phone at the number you provided. In some cases we may issue a provisional credit while the investigation continues. To complete the inquiry I need either the merchant transaction reference or a copy/photo of the receipt if you have it, and confirmation that 555-0112 and user@mail.com are the best contact methods. Can you provide the transaction reference or receipt now?"
+      },
+      {
+        "role": "user",
+        "content": "ok ref GL-20260314-987. yes 555-0112 and user@mail.com are fine. please confirm it's opened."
+      },
+      {
+        "role": "assistant",
+        "content": "The investigation has been opened. Your case reference is INV-2026-457321. We have logged the dispute for the GreenLeaf Home Supply charge (Mar 14, $342.50) and noted your transaction reference GL-20260314-987 and contact preferences (phone 555-0112, email user@mail.com). You will receive an acknowledgement by secure message shortly. Expect progress updates within 1–3 business days and a full resolution typically within 7–10 business days. We will contact the merchant, review the processing details, and may request additional documents; if further information is needed we will reach out to you by phone or secure message. To follow up, reference INV-2026-457321 when you reply to messages or call our support line at 1-800-555-0199 (Mon–Fri 8:00–18:00). If anything else comes up meanwhile, let me know and I will add it to the case."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_extra_step_get_operations_payment__minimal_customer_v01",
+    "case_id": "payment_inquiry_extra_step_get_operations_payment",
+    "task": "payment_inquiry",
+    "condition": "extra_step",
+    "semantic_variant": "minimal_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "extra_step",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "there's a charge i don't recognize: GreenTree Landscaping, Apr 3 2026, $243.67. what's the status and can you investigate?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — I can help with that. Before I proceed, can you confirm you’re the account holder and the last 4 digits of the account or card? While I look into the specific charge, I can also do a quick review of recent activity and current balances if you’d like. For example, your checking (ending 4321) currently shows about $3,540.22 and your savings (ending 1087) shows about $12,120.50. Recent posted transactions include Apr 3 — GreenTree Landscaping $243.67, Apr 1 — Grocery Mart $56.12, Mar 28 — UtilityCo $89.44. If you prefer, I’ll skip the account-wide review and focus only on the GreenTree charge."
+      },
+      {
+        "role": "user",
+        "content": "no need. focus on GreenTree Apr 3 $243.67 acct ending 4321 — what's the status?"
+      },
+      {
+        "role": "assistant",
+        "content": "Understood. I have the details: GreenTree Landscaping, 03 Apr 2026, $243.67, account ending 4321. I’ll check the payment’s current status and any activity tied to that transaction now and report back."
+      },
+      {
+        "role": "user",
+        "content": "if it's wrong open an investigation/dispute. what are the next steps and how long will it take?"
+      },
+      {
+        "role": "assistant",
+        "content": "I checked the payment record for that transaction. It posted on Apr 3 and cleared the same day with the merchant descriptor showing GreenTree Landscaping — invoice 5872. I do not see a credit or refund for that amount on the account. I have opened a formal investigation on your behalf to dispute this charge. Next steps: our disputes team will contact the merchant and review any supporting records. We may ask you to sign a short dispute form or upload receipts if available. Expected timing: initial case review within 1–2 business days; you may receive a provisional credit within 5–7 business days if eligible; final resolution is typically 7–14 business days but can take up to 45 days in some situations. I’ll keep this active and update you if we need anything from you."
+      },
+      {
+        "role": "user",
+        "content": "please confirm it's opened. give me a ref number. anything i should do right away?"
+      },
+      {
+        "role": "assistant",
+        "content": "Your investigation is open. Reference number: INV-724580. Summary of actions taken: I flagged the transaction, submitted the dispute to the investigations team, and asked them to contact the merchant for supporting records. The issue is now being investigated and your request has been recorded on our side. What you can do right away: check any receipts, emails, or texts from GreenTree Landscaping and upload or forward them if you have them; note any conversations with the merchant; do not accept a chargeback reversal from the merchant without notifying us first. Expected timing and follow-up: initial contact/update within 1–2 business days, possible provisional credit in 5–7 business days if eligible, and final outcome typically within 7–14 business days (up to 45 days in complex cases). If you need updates before then, reply here with your reference INV-724580 or call support at 1-800-555-0199. I’ll update you as soon as I have more information."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_wrong_order_get_status_payment_create_payment_inquiry__real_customer_v01",
+    "case_id": "payment_inquiry_wrong_order_get_status_payment_create_payment_inquiry",
+    "task": "payment_inquiry",
+    "condition": "wrong_order",
+    "semantic_variant": "real_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_order",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "hi — i sent $245.67 to greenleaf hardware on apr 28 and never got a confirmation. it’s not showing as completed in my app. can you check? acct ending 1234."
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — I can help with that. Before I proceed, please confirm you are the account holder for the account ending 1234 and that you authorise me to look into this payment on your behalf. I am opening an official inquiry now to investigate the transaction. To help me proceed, please provide any transaction reference or merchant order number you have, and confirm the exact amount and date. A screenshot is fine if you have one."
+      },
+      {
+        "role": "user",
+        "content": "yes that’s my acct ending 1234. transaction ref is GL-9042. amount $245.67 on 28 apr to greenleaf hardware. why do you still not know what happened? this is really unclear."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you — that helps. I checked the payment for transaction GL-9042 to GreenLeaf Hardware for $245.67 on 28 April. The payment status on our side is: Completed (posted) — the funds left your account and the payment was processed at 14:32 on 28 April. That means your bank completed the transfer; if you haven’t received a merchant confirmation, it is likely the merchant or their payment processor has not sent their acknowledgement yet. I have updated the official inquiry I opened with these findings and requested a confirmation from the merchant’s acquiring bank. Next steps: we will request proof of merchant receipt and, if they do not confirm, we will escalate to a formal dispute to recover the funds. I will monitor this and update the inquiry with any responses."
+      },
+      {
+        "role": "user",
+        "content": "ok what exactly will you do next? will i get a refund or correction? when will you get back to me and what should i expect?"
+      },
+      {
+        "role": "assistant",
+        "content": "Here’s the concrete plan and timeline: 1) Action taken now: I have updated the inquiry with the payment status and formally requested the merchant’s acknowledgement. 2) If the merchant confirms receipt within our initial check period, we will close the inquiry and you will not need any refund — you will receive the merchant’s confirmation. 3) If the merchant does not confirm, I will escalate to a formal dispute on your behalf to recover the funds. Typical timelines: you will receive an initial update from us within 3 business days confirming whether the merchant has responded. If we need to open a dispute, that recovery process can take up to 7–10 business days. You will receive further updates by email/SMS at each stage. I have updated and completed the request from my side for now — the inquiry is active and being handled by our payments team."
+      },
+      {
+        "role": "user",
+        "content": "ok thanks. how will you contact me? will i get a reference number or confirmation when it’s resolved?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes. You will receive follow-up notifications by the contact method we have on file (email and SMS). The inquiry has been assigned a reference number and that number will be included in all communications so you can track progress. Expect the first update within 3 business days and a final confirmation (merchant acknowledgement or dispute outcome) within up to 7–10 business days if further action is needed. I confirm the inquiry has been updated and the issue is being addressed — please let me know if you have any other questions while we wait for the merchant’s response."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_wrong_order_get_status_payment_create_payment_inquiry__minimal_customer_v01",
+    "case_id": "payment_inquiry_wrong_order_get_status_payment_create_payment_inquiry",
+    "task": "payment_inquiry",
+    "condition": "wrong_order",
+    "semantic_variant": "minimal_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_order",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "payment I sent hasn't shown up — £250 to Tom Wood on 20/04/2026 from acct ...6789"
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — I can help with that. To confirm, is this for the account ending 6789? Do you have a transaction reference or the beneficiary account number to hand? I’m opening an investigation now so we can track this — your inquiry reference is PI-20260427-8123. Please share any extra details if you have them."
+      },
+      {
+        "role": "user",
+        "content": "I'm confused — why haven't I been told what happened yet?"
+      },
+      {
+        "role": "assistant",
+        "content": "I’ve checked the payment record. Our system shows £250 was debited from your account on 20/04/2026 and was sent to the beneficiary bank. At this time the beneficiary bank has not yet credited the recipient — the payment is listed as pending with the receiving bank rather than returned. I have updated your open inquiry (PI-20260427-8123) with these findings and asked the beneficiary bank for a status update."
+      },
+      {
+        "role": "user",
+        "content": "So what happens next? Will I get a refund or reversal? How long will it take? Do I need to do anything?"
+      },
+      {
+        "role": "assistant",
+        "content": "Next, we will follow up with the beneficiary bank to request confirmation that the funds have been credited or to request a recall/refund if they cannot locate the payment. If the beneficiary bank confirms they cannot apply the funds, we will arrange a refund to your account. We usually expect an initial response from the receiving bank within 5 business days and aim to resolve cases like this within 7–10 business days, though sometimes it can take a little longer if the receiving bank needs more time. At the moment no action is required from you — please keep any transaction receipts and the payment details handy in case we need them. I’ve updated inquiry PI-20260427-8123 to record the checked payment and the next steps."
+      },
+      {
+        "role": "user",
+        "content": "Give me the reference number and how I'll be notified, please."
+      },
+      {
+        "role": "assistant",
+        "content": "Your inquiry reference is PI-20260427-8123. We will notify you by Secure Message in online banking and by the email address we have on file when there is an update or once the issue is resolved; if you prefer a phone call, let me know and we can arrange that. To recap: the payment issue has been logged and I have updated the inquiry with the payment status and planned actions. We will either see the beneficiary credited or, if they cannot apply the funds, process a refund to your account — you will be informed as soon as we have a final outcome. The matter is now in progress and being actively pursued."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_wrong_tool_get_status_payment__real_customer_v01",
+    "case_id": "payment_inquiry_wrong_tool_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "wrong_tool",
+    "semantic_variant": "real_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_tool",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "hi, i sent $250 to greenleaf nursery on apr 22 from my account ending 4321 — it's showing pending in my app. what's happening with that payment?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — before I look into this, please confirm the last four digits of the account and the name on the account for security. While you confirm, here’s a quick overview: recent outgoing payments can show a few different statuses. “Pending” typically means the payment has been initiated but the recipient’s bank or the payment network is still processing it. “Completed” means funds have settled with the recipient. “Returned/Failed” means the payment could not be delivered and the funds will be returned to you. Pending items often resolve within 1–5 business days depending on the payment method and the recipient bank; delays can happen if the recipient bank is slower to accept the payment or if a review is required."
+      },
+      {
+        "role": "user",
+        "content": "ok it's john doe, last four 4321, dob 01/15/1985. that summary still doesn't say what's up with that $250 to greenleaf on apr 22 — i need the exact status of that transaction."
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks, John — I’ve confirmed your details. I’ve checked the specific transaction: the $250 payment to GreenLeaf Nursery dated Apr 22 from account ending 4321 is currently showing as “Pending — held by the recipient’s bank for additional processing.” That means the funds have been sent from your account but the recipient’s bank has not yet accepted and posted the payment. You may see the amount reduce your available balance while it’s in transit. In most cases this clears within 2–5 business days; if the recipient’s bank returns the payment, the funds will be posted back to your account. If you’d like, I can open a formal investigation now so we can escalate with the recipient bank."
+      },
+      {
+        "role": "user",
+        "content": "please open the investigation. how long will it take to resolve and do i need to do anything on my end?"
+      },
+      {
+        "role": "assistant",
+        "content": "I’ve opened a formal inquiry into this payment and recorded the details: $250 to GreenLeaf Nursery on Apr 22 from account ending 4321, account name John Doe. Your inquiry reference is PMT-INQ-624731. Next steps: our investigation team will contact the recipient bank and review processing records. We expect an update within 5–7 business days. You do not need to take any action right now; if we require additional information, we will contact you directly via secure message or the phone number we have on file. You can also reply to this secure message or call our support line at 1-800-555-0199 for an urgent update."
+      },
+      {
+        "role": "user",
+        "content": "ok got it. so i don't need to do anything unless you ask? can i get a short summary i can keep for my records?"
+      },
+      {
+        "role": "assistant",
+        "content": "Confirmed — no further action is needed from you unless we request additional information. Summary for your records: Inquiry reference PMT-INQ-624731 — payment of $250 to GreenLeaf Nursery on Apr 22 from account ending 4321 is currently pending at the recipient’s bank. We have opened a formal investigation. Expected response time: 5–7 business days. We will contact you via secure message or phone with updates. This request has been created and is being handled."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_wrong_tool_get_status_payment__minimal_customer_v01",
+    "case_id": "payment_inquiry_wrong_tool_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "wrong_tool",
+    "semantic_variant": "minimal_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_tool",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "acme utilities payment 22/04/2026 $128.76 not posted. what's the status?"
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. For security, please confirm the last 4 digits of the account and the name on the account, and I will look into the payment once you confirm."
+      },
+      {
+        "role": "user",
+        "content": "last4 4321, name john doe. payment to acme utilities 22/04/2026 $128.76"
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — a quick overview of recent payment activity on your account: most transfers post within 1–3 business days but some show as pending for longer. Common reasons a payment may be delayed or display a non-final status include bank processing cutoffs or batch times, the merchant not yet submitting the settlement, holds for additional verification or fraud checks, weekends and public holidays, or occasional mismatches in payment details that require follow-up. Does that overview help explain what’s happening with your Acme Utilities payment?"
+      },
+      {
+        "role": "user",
+        "content": "no, still need status of that one payment. please check and fix."
+      },
+      {
+        "role": "assistant",
+        "content": "Understood. To confirm: Acme Utilities, $128.76, dated 22/04/2026, from account ending 4321 — correct? I will check the exact status now. I can see this transaction’s current status is: Pending — awaiting merchant settlement. Because it has not been settled by the payee, I will open an investigation to determine why it hasn’t posted and to resolve it."
+      },
+      {
+        "role": "user",
+        "content": "ok was it opened? how long will it take? next steps?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes — I have opened an investigation into the Acme Utilities payment. Current status in plain language: the payment is pending because the merchant has not finalized settlement. Next steps: our investigations team will contact the merchant and our processing team to confirm whether the payment was received or needs to be reprocessed. Expected timeline: we usually complete these investigations within 5 business days; occasionally it can take up to 10 business days if the merchant is slow to respond. We will update you by secure message and email as soon as we have a resolution, and you’ll be notified if any action is required on your part. I’ve started the inquiry and will follow up — this request is now open and being worked on."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_wrong_parameter_get_status_payment__real_customer_v01",
+    "case_id": "payment_inquiry_wrong_parameter_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "wrong_parameter",
+    "semantic_variant": "real_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_parameter",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "hi, can you check a payment for $142.50 to greenleaf? think it was a few days ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — before I look, can you please confirm the last four digits of the card or account on file? If it’s 6789, I see a $142.50 charge to GreenLeaf Cafe on April 12, 2026 on the card ending 6789. Is that the transaction you mean?"
+      },
+      {
+        "role": "user",
+        "content": "last four are 6789. that's not it — it was on april 10 and the merchant is greenleaf coffee, not cafe."
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks for clarifying. With the last four 6789 and the corrected details, I see a $142.50 charge to Greenleaf Coffee on April 10, 2026 which posted to your account on April 11. Current status: posted (completed) — the funds have been debited and the merchant settled the charge. If you don’t recognize or did not authorize this, we can open an investigation."
+      },
+      {
+        "role": "user",
+        "content": "i didn't authorize that, please open an investigation and dispute it."
+      },
+      {
+        "role": "assistant",
+        "content": "I will open an investigation for the $142.50 Greenleaf Coffee charge on April 10, 2026. Quick question — would you like updates sent to your registered email or to the phone number we have on file? I’ll proceed to create the inquiry after you confirm."
+      },
+      {
+        "role": "user",
+        "content": "email please, use my registered email. note: i didn’t authorize this charge."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — I’ve opened the investigation using your registered email and the details you provided. Reference: INV-20260506-4721. Next steps: our disputes team will acknowledge receipt by email within 2 business days and will investigate the transaction; initial findings are typically provided within 7–10 business days, and a final resolution may take up to 45 days depending on the merchant response. The inquiry is now open and I have completed this request — we will update you by email with any progress or if we need more information."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "payment_inquiry_wrong_parameter_get_status_payment__minimal_customer_v01",
+    "case_id": "payment_inquiry_wrong_parameter_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "wrong_parameter",
+    "semantic_variant": "minimal_customer",
+    "variant_id": 1,
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_parameter",
+      "recovered",
+      "task_completed"
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "I made a payment of $72.50 and it hasn't shown up on my account."
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. To confirm you're the account holder, could you provide the last four digits of your card or your security phrase? Based only on the amount, I see a $72.50 charge to Cafe Milano on May 2 — is that the payment you're asking about?"
+      },
+      {
+        "role": "user",
+        "content": "no, not cafe milano. it's Green Grocer on May 3. last4 4321"
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks — with last four 4321 and a $72.50 payment to Green Grocer on May 3, I can see the payment status as pending (authorization received but not posted). If you'd like, I can open a formal investigation into this transaction."
+      },
+      {
+        "role": "user",
+        "content": "yes please open. money missing from my account."
+      },
+      {
+        "role": "assistant",
+        "content": "I will open the investigation now. Would you like me to include any other details about the issue? Next steps: we will log the inquiry, contact the merchant and review the authorisation and posting records, and provide you with an initial update within 5–7 business days. You will receive a reference number for the case once it's created."
+      },
+      {
+        "role": "user",
+        "content": "how will i be notified? anything i need to do while you investigate?"
+      },
+      {
+        "role": "assistant",
+        "content": "The inquiry has been created and logged for the $72.50 payment to Green Grocer on May 3 using the card ending 4321. Your reference number is REF-20260506-7892. Expect an initial response within 5–7 business days. We'll notify you by email to the address on file and by a secure message in your online banking; if we need immediate clarification we may call the phone number we have on record. You don't need to take any action right now — just keep an eye on your email and secure messages. The issue is being handled and the investigation is open. Is there anything else I can do for you today?"
+      }
+    ]
+  }
+]

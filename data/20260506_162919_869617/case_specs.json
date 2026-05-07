@@ -1,0 +1,135 @@
+[
+  {
+    "case_id": "payment_inquiry_correct",
+    "task": "payment_inquiry",
+    "condition": "correct",
+    "error": null,
+    "trace": [
+      "verify_customer_session",
+      "get_status_payment",
+      "create_payment_inquiry",
+      "done"
+    ],
+    "expected_outcome": "task_completed",
+    "labels": [
+      "correct",
+      "task_completed"
+    ]
+  },
+  {
+    "case_id": "payment_inquiry_skip_step_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "skip_step",
+    "error": {
+      "type": "skip_step",
+      "at": "get_status_payment",
+      "recovered": true
+    },
+    "trace": [
+      "verify_customer_session",
+      "skip_step@get_status_payment",
+      "get_status_payment",
+      "create_payment_inquiry",
+      "done"
+    ],
+    "expected_outcome": "task_completed",
+    "labels": [
+      "skip_step",
+      "recovered",
+      "task_completed"
+    ]
+  },
+  {
+    "case_id": "payment_inquiry_extra_step_get_operations_payment",
+    "task": "payment_inquiry",
+    "condition": "extra_step",
+    "error": {
+      "type": "extra_step",
+      "at": "get_operations_payment",
+      "anchor": "get_status_payment"
+    },
+    "trace": [
+      "verify_customer_session",
+      "get_status_payment",
+      "get_operations_payment",
+      "create_payment_inquiry",
+      "done"
+    ],
+    "expected_outcome": "task_completed",
+    "labels": [
+      "extra_step",
+      "task_completed"
+    ]
+  },
+  {
+    "case_id": "payment_inquiry_wrong_order_get_status_payment_create_payment_inquiry",
+    "task": "payment_inquiry",
+    "condition": "wrong_order",
+    "error": {
+      "type": "wrong_order",
+      "at": "create_payment_inquiry",
+      "required_before": "get_status_payment",
+      "recovered": true
+    },
+    "trace": [
+      "verify_customer_session",
+      "create_payment_inquiry",
+      "get_status_payment",
+      "create_payment_inquiry",
+      "done"
+    ],
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_order",
+      "recovered",
+      "task_completed"
+    ]
+  },
+  {
+    "case_id": "payment_inquiry_wrong_tool_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "wrong_tool",
+    "error": {
+      "type": "wrong_tool",
+      "at": "get_status_payment",
+      "replacement": "get_operations_payment",
+      "recovered": true
+    },
+    "trace": [
+      "verify_customer_session",
+      "get_operations_payment",
+      "get_status_payment",
+      "create_payment_inquiry",
+      "done"
+    ],
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_tool",
+      "recovered",
+      "task_completed"
+    ]
+  },
+  {
+    "case_id": "payment_inquiry_wrong_parameter_get_status_payment",
+    "task": "payment_inquiry",
+    "condition": "wrong_parameter",
+    "error": {
+      "type": "wrong_parameter",
+      "at": "get_status_payment",
+      "recovered": true
+    },
+    "trace": [
+      "verify_customer_session",
+      "wrong_parameter@get_status_payment",
+      "get_status_payment",
+      "create_payment_inquiry",
+      "done"
+    ],
+    "expected_outcome": "task_completed",
+    "labels": [
+      "wrong_parameter",
+      "recovered",
+      "task_completed"
+    ]
+  }
+]
